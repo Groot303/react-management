@@ -1,57 +1,17 @@
-import {
-	FileOutlined,
-	PieChartOutlined,
-	TeamOutlined,
-	UserOutlined,
-} from "@ant-design/icons";
-import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { Breadcrumb, Layout, theme } from "antd";
 
 import { useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+
+import MainMenu from "@/components/MainMenu";
 
 const { Header, Content, Footer, Sider } = Layout;
-
-type MenuItem = Required<MenuProps>["items"][number];
-
-function getItem(
-	label: React.ReactNode,
-	key: React.Key,
-	icon?: React.ReactNode,
-	children?: MenuItem[],
-): MenuItem {
-	return {
-		key,
-		icon,
-		children,
-		label,
-	} as MenuItem;
-}
-
-const items: MenuItem[] = [
-	getItem("Option 1", "/about", <PieChartOutlined />),
-	getItem("User", "sub1", <UserOutlined />, [
-		getItem("Tom", "/page"),
-		getItem("Bill", "4"),
-		getItem("Alex", "5"),
-	]),
-	getItem("Team", "sub2", <TeamOutlined />, [
-		getItem("Team 1", "6"),
-		getItem("Team 2", "8"),
-	]),
-	getItem("Files", "9", <FileOutlined />),
-];
 
 const Home: React.FC = function () {
 	const [collapsed, setCollapsed] = useState(false);
 	const {
 		token: { colorBgContainer },
 	} = theme.useToken();
-
-	const navigateTo = useNavigate();
-	function menuClick(e: { key: string }) {
-		navigateTo(e.key);
-	}
 
 	return (
 		<Layout style={{ minHeight: "100vh" }}>
@@ -62,13 +22,7 @@ const Home: React.FC = function () {
 				onCollapse={(value) => setCollapsed(value)}
 			>
 				<div className='demo-logo-vertical'>广东工业大学</div>
-				<Menu
-					theme='dark'
-					defaultSelectedKeys={["1"]}
-					mode='inline'
-					items={items}
-					onClick={menuClick}
-				/>
+				<MainMenu />
 			</Sider>
 			{/* 右边布局 */}
 			<Layout>

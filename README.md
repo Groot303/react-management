@@ -1,3 +1,3 @@
-# React + TypeScript + Vite
+# A management system
 
-- A management system 
+- React + TypeScript + Vite + Ant design
