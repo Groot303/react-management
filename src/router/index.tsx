@@ -2,6 +2,7 @@ import { Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
 import Home from "@/views/Home";
+import Login from "@/views/Login";
 
 //懒加载
 // import About from "@/views/About"
@@ -31,6 +32,10 @@ const routes = [
 				element: withLoadingComponent(<Page />),
 			},
 		],
+	},
+	{
+		path: "/login",
+		element: <Login />,
 	},
 	{
 		path: "*",
