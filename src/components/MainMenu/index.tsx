@@ -7,7 +7,7 @@ import { useState, useMemo, useCallback } from "react";
 const items = [
 	{
 		label: "选项一",
-		key: "/about",
+		key: "/home/about",
 		icon: <PieChartOutlined />,
 	},
 	{
@@ -17,7 +17,7 @@ const items = [
 		children: [
 			{
 				label: "子选项一",
-				key: "/page",
+				key: "/home/page",
 			},
 			{
 				label: "子选项二",
