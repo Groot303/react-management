@@ -17,18 +17,18 @@ const withLoadingComponent = (comp: JSX.Element) => {
 const routes = [
 	{
 		path: "/",
-		element: <Navigate to='about' />,
+		element: <Navigate to='home' />,
 	},
 	{
-		path: "/",
+		path: "/home",
 		element: <Home />,
 		children: [
 			{
-				path: "/about",
+				path: "/home/about",
 				element: withLoadingComponent(<About />),
 			},
 			{
-				path: "/page",
+				path: "/home/page",
 				element: withLoadingComponent(<Page />),
 			},
 		],
@@ -39,7 +39,7 @@ const routes = [
 	},
 	{
 		path: "*",
-		element: <Navigate to='about' />,
+		element: <Navigate to='home' />,
 	},
 ];
 
